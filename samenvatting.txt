@@ -1,0 +1,1 @@
+er wordt via de console de naam van de charmander gevraagd en deze wordt 10 keer geprint en dan vervolgens wordt de nieuwe naam gemaakt en deze wordt dan ook 10 keer geprint. vervolgens gebeurt dit opnieuw
