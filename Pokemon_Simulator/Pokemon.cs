@@ -3,17 +3,17 @@ using System;
 
 namespace Pokemon;
 
-    public class Charmander
-    {
-        public string Name { get; set; }
-        public string Strength { get; set; }
-        public string Weakness { get; set; }
+public class Charmander
+{
+    public string Name { get; set; }
+    public string Strength { get; set; }
+    public string Weakness { get; set; }
 
-        public int CharmanderNumber { get; set; }
+    public int CharmanderNumber { get; set; }
 
-        public Boolean IsReleased { get; set; }
+    public Boolean IsReleased { get; set; }
 
-        
+
     public Charmander(string Name, string Strength, string Weakness, int CharmanderNumber, bool IsReleased)
     {
         this.Name = Name;
@@ -23,8 +23,11 @@ namespace Pokemon;
         this.IsReleased = IsReleased;
     }
 
-
+    public void BattleCry(string Name)
+    {
+        Console.WriteLine($"{Name}!!!!");
     }
+}
 
 
 /*
@@ -53,7 +56,7 @@ The charmander can be returned back to its pokeball, which closes the pokeball a
             
 
             PokeBallsList.Add(this);
-            Console.WriteLine(PokeBallsList.Count);
+            
                     
             }
             
@@ -65,6 +68,7 @@ The charmander can be returned back to its pokeball, which closes the pokeball a
                 PokeBall.IsFull = false;
                 PokeBall.charmander.IsReleased = true;
                 
+                
                // return PokeballNumber;
             }
 
@@ -74,6 +78,7 @@ The charmander can be returned back to its pokeball, which closes the pokeball a
                 var PokeBall = PokeballList[PokeballNumber];
                 PokeBall.IsFull = true;
                 PokeBall.charmander.IsReleased = false;
+                
             }
             
             
@@ -125,9 +130,4 @@ public class Trainer
 
 
 }
-
-
-
-
-
 
