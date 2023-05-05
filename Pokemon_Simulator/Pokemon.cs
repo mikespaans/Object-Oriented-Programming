@@ -8,6 +8,7 @@ public abstract class BasePokemon
     public string Name { get; set; }
     public string Strength { get; set; }
     public string Weakness { get; set; }
+    public string Type { get; set; }
 
     public int PokemonNumber { get; set; }
 
@@ -21,12 +22,13 @@ public abstract class BasePokemon
 
 public class Squirtle : BasePokemon
 {
-    public Squirtle(string Name, string Strength, string Weakness, int PokemonNumber)
+    public Squirtle(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
     {
         this.Name = Name;
         this.Strength = Strength;
         this.Weakness = Weakness;
         this.PokemonNumber = PokemonNumber;
+        this.Type = Type;
     }
     
     public override void BattleCry(string Name)
@@ -37,12 +39,13 @@ public class Squirtle : BasePokemon
 
 public class Bulbasaur : BasePokemon
 {
-    public Bulbasaur(string Name, string Strength, string Weakness, int PokemonNumber)
+    public Bulbasaur(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
     {
         this.Name = Name;
         this.Strength = Strength;
         this.Weakness = Weakness;
         this.PokemonNumber = PokemonNumber;
+        this.Type = Type;
     }
     public override void BattleCry(string Name)
     {
@@ -53,12 +56,13 @@ public class Bulbasaur : BasePokemon
 
 public class Charmander : BasePokemon
 {
-    public Charmander(string Name, string Strength, string Weakness, int PokemonNumber)
+    public Charmander(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
     {
         this.Name = Name;
         this.Strength = Strength;
         this.Weakness = Weakness;
         this.PokemonNumber = PokemonNumber;
+        this.Type = Type;
     }
     public override void BattleCry(string Name)
     {
@@ -138,17 +142,17 @@ public class Trainer
         {
             if (i <= 1)
             {
-                var charmander = new Charmander("Charmander", "Fire", "Water", i);
+                var charmander = new Charmander("Charmander", "Fire", "Water", i, "charmander");
                 var Pokeball = new Pokeball(true, i, charmander, PokeballList);
             }
             else if (i <= 3)
             {
-                var squirtle = new Squirtle("Squirtle", "Water", "Leaf", i);
+                var squirtle = new Squirtle("Squirtle", "Water", "Leaf", i, "squirtle");
                 var Pokeball = new Pokeball(true, i, squirtle, PokeballList);
             }
             else
             {
-                var bulbasaur = new Bulbasaur("Bulbasaur", "Leaf", "Fire", i);
+                var bulbasaur = new Bulbasaur("Bulbasaur", "Leaf", "Fire", i, "bulbasaur");
                 var Pokeball = new Pokeball(true, i, bulbasaur, PokeballList);
             }
             
@@ -163,6 +167,26 @@ public class Trainer
     public void Return(int PokeballNumber, List<Pokeball> PokeballList)
     {
         Pokeball.Return(PokeballNumber, PokeballList);
+    }
+
+    //gets a random pokeball from the belt
+    public Pokeball GetRandomPokeball(List<Pokeball> PokeballList)
+    {
+        
+        //Random Pokeball gets selected
+        Random random = new Random();
+        int RandomIndex = random.Next(PokeballList.Count);
+        var RandomPokeball = PokeballList[RandomIndex];
+        // Console.WriteLine(RandomPokeball.Pokemon.Name);
+        
+        //Pokeball gets removed from the belt
+        PokeballList.Remove(RandomPokeball);
+        
+        //Pokemon gets released
+        RandomPokeball.IsFull = false;
+        
+        //random Pokeball gets returned
+        return RandomPokeball;
     }
 
 
