@@ -3,37 +3,78 @@ using System;
 
 namespace Pokemon;
 
-    public class Charmander
-    {
-        public string Name { get; set; }
-        public string Strength { get; set; }
-        public string Weakness { get; set; }
+public abstract class BasePokemon
+{
+    public string Name { get; set; }
+    public string Strength { get; set; }
+    public string Weakness { get; set; }
+    public string Type { get; set; }
 
-        public int CharmanderNumber { get; set; }
+    public int PokemonNumber { get; set; }
 
-        public Boolean IsReleased { get; set; }
+    
+    
+    public abstract void BattleCry(string Name);
+    
+    //
 
-        
-    public Charmander(string Name, string Strength, string Weakness, int CharmanderNumber, bool IsReleased)
+}
+
+public class Squirtle : BasePokemon
+{
+    public Squirtle(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
     {
         this.Name = Name;
         this.Strength = Strength;
         this.Weakness = Weakness;
-        this.CharmanderNumber = CharmanderNumber;
-        this.IsReleased = IsReleased;
+        this.PokemonNumber = PokemonNumber;
+        this.Type = Type;
+    }
+    
+    public override void BattleCry(string Name)
+    {
+        Console.WriteLine($"{Name}!!!!");
+    }
+}
+
+public class Bulbasaur : BasePokemon
+{
+    public Bulbasaur(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
+    {
+        this.Name = Name;
+        this.Strength = Strength;
+        this.Weakness = Weakness;
+        this.PokemonNumber = PokemonNumber;
+        this.Type = Type;
+    }
+    public override void BattleCry(string Name)
+    {
+        Console.WriteLine($"{Name}!!!!");
+    }
+}
+
+
+public class Charmander : BasePokemon
+{
+    public Charmander(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
+    {
+        this.Name = Name;
+        this.Strength = Strength;
+        this.Weakness = Weakness;
+        this.PokemonNumber = PokemonNumber;
+        this.Type = Type;
+    }
+    public override void BattleCry(string Name)
+    {
+        Console.WriteLine($"{Name}!!!!");
     }
 
+    
+}
 
-    }
 
-
-/*
-The pokeball is empty or it can contain a single charmander.
-The pokeball can be thrown, which opens it up, and then releases the charmander inside of it.
-The charmander can be returned back to its pokeball, which closes the pokeball again.
- */
-    public class Pokeball
-        {
+public class Pokeball
+    {
 
     public static List<Pokeball> PokeballsBelt = new List<Pokeball>();
     public static List<Pokeball> PokeballsBelt2 = new List<Pokeball>();
@@ -42,18 +83,21 @@ The charmander can be returned back to its pokeball, which closes the pokeball a
 
     public Boolean IsFull { get; set; }
     public int PokeballNumber { get; set; }
+    public int TrainerNumber { get; set; }
 
-    public Charmander charmander { get; set; }
+    // public Charmander charmander { get; set; }
+    public BasePokemon Pokemon { get; set; }
 
-        public Pokeball (Boolean IsFull, int PokeballNumber, Charmander charmander, List<Pokeball> PokeBallsList)
+        public Pokeball (Boolean IsFull, int PokeballNumber, BasePokemon Pokemon, List<Pokeball> PokeBallsList, int TrainerNumber)
             {
             this.IsFull = IsFull;
             this.PokeballNumber = PokeballNumber;
-            this.charmander = charmander;
+            this.Pokemon = Pokemon;
+            this.TrainerNumber = TrainerNumber;
             
 
             PokeBallsList.Add(this);
-            Console.WriteLine(PokeBallsList.Count);
+            
                     
             }
             
@@ -63,7 +107,7 @@ The charmander can be returned back to its pokeball, which closes the pokeball a
                 var PokeBall = PokeballList[PokeballNumber];
                 //charmander gets released
                 PokeBall.IsFull = false;
-                PokeBall.charmander.IsReleased = true;
+                
                 
                // return PokeballNumber;
             }
@@ -73,42 +117,42 @@ The charmander can be returned back to its pokeball, which closes the pokeball a
                 //charmander gets returned
                 var PokeBall = PokeballList[PokeballNumber];
                 PokeBall.IsFull = true;
-                PokeBall.charmander.IsReleased = false;
+                
             }
             
-            
-
         }
 
 
-
-
-/*
-The trainer has a name and a belt with six pokeballs.
-The trainer can throw a pokeball from their belt.
-The trainer can return a pokemon back to its pokeball and put the pokeball back on their belt.
-There are restrictions to the Trainer class:
-The belt has six pokeballs with a Charmander in each of them.
-The belt cannot be an array but has to be a List<Pokeball> class.
- */
 public class Trainer
 {
-    //private List<Pokeball> PokeballsBelt = new List<Pokeball>();
-
     public string Name { get; set; }
 
-    public Trainer(string Name, List<Pokeball> PokeballList)
+    public Trainer(string Name, List<Pokeball> PokeballList, int TrainerNumber)
     {
         this.Name = Name;
-        FillBelt(PokeballList);
+        FillBelt(PokeballList, TrainerNumber);
     }
 
-    public static void FillBelt(List<Pokeball> PokeballList)
+    public static void FillBelt(List<Pokeball> PokeballList, int TrainerNumber)
     {
         for (int i = 0; i < 6; i++)
         {
-            var charmander = new Charmander("Charmander", "Fire", "Water", i, false);
-            var Pokeball = new Pokeball(true, i, charmander, PokeballList);
+            if (i <= 1)
+            {
+                var charmander = new Charmander("Charmander", "Fire", "Water", i, "charmander");
+                var Pokeball = new Pokeball(true, i, charmander, PokeballList, TrainerNumber);
+            }
+            else if (i <= 3)
+            {
+                var squirtle = new Squirtle("Squirtle", "Water", "Leaf", i, "squirtle");
+                var Pokeball = new Pokeball(true, i, squirtle, PokeballList, TrainerNumber);
+            }
+            else
+            {
+                var bulbasaur = new Bulbasaur("Bulbasaur", "Leaf", "Fire", i, "bulbasaur");
+                var Pokeball = new Pokeball(true, i, bulbasaur, PokeballList, TrainerNumber);
+            }
+            
         }
     }
 
@@ -122,12 +166,26 @@ public class Trainer
         Pokeball.Return(PokeballNumber, PokeballList);
     }
 
+    //gets a random pokeball from the belt
+    public Pokeball GetRandomPokeball(List<Pokeball> PokeballList)
+    {
+        
+        //Random Pokeball gets selected
+        Random random = new Random();
+        int RandomIndex = random.Next(PokeballList.Count);
+        var RandomPokeball = PokeballList[RandomIndex];
+        // Console.WriteLine(RandomPokeball.Pokemon.Name);
+        
+        //Pokeball gets removed from the belt
+        PokeballList.Remove(RandomPokeball);
+        
+        //Pokemon gets released
+        RandomPokeball.IsFull = false;
+        
+        //random Pokeball gets returned
+        return RandomPokeball;
+    }
+
 
 
 }
-
-
-
-
-
-
