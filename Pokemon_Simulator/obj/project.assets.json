@@ -8,19 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Redux\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Redux\\code\\school\\Object-Oriented-Programming\\Pokemon_Simulator\\Pokemon_Simulator.csproj",
+      "projectUniqueName": "C:\\school\\software\\jaar2\\Object-Oriented-Programming\\Pokemon_Simulator\\Pokemon_Simulator.csproj",
       "projectName": "Pokemon_Simulator",
-      "projectPath": "C:\\Users\\Redux\\code\\school\\Object-Oriented-Programming\\Pokemon_Simulator\\Pokemon_Simulator.csproj",
-      "packagesPath": "C:\\Users\\Redux\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Redux\\code\\school\\Object-Oriented-Programming\\Pokemon_Simulator\\obj\\",
+      "projectPath": "C:\\school\\software\\jaar2\\Object-Oriented-Programming\\Pokemon_Simulator\\Pokemon_Simulator.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "C:\\school\\software\\jaar2\\Object-Oriented-Programming\\Pokemon_Simulator\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Redux\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -57,19 +57,19 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
+            "version": "[6.0.16, 6.0.16]"
           },
           {
             "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.15, 6.0.15]"
+            "version": "[6.0.16, 6.0.16]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
+            "version": "[6.0.16, 6.0.16]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.15, 6.0.15]"
+            "version": "[6.0.16, 6.0.16]"
           }
         ],
         "frameworkReferences": {
@@ -77,7 +77,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\Redux\\.dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

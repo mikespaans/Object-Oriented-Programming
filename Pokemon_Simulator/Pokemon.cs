@@ -73,8 +73,8 @@ public class Charmander : BasePokemon
 }
 
 
-    public class Pokeball
-        {
+public class Pokeball
+    {
 
     public static List<Pokeball> PokeballsBelt = new List<Pokeball>();
     public static List<Pokeball> PokeballsBelt2 = new List<Pokeball>();
@@ -83,16 +83,17 @@ public class Charmander : BasePokemon
 
     public Boolean IsFull { get; set; }
     public int PokeballNumber { get; set; }
+    public int TrainerNumber { get; set; }
 
     // public Charmander charmander { get; set; }
     public BasePokemon Pokemon { get; set; }
 
-    //aanpassen
-        public Pokeball (Boolean IsFull, int PokeballNumber, BasePokemon Pokemon, List<Pokeball> PokeBallsList)
+        public Pokeball (Boolean IsFull, int PokeballNumber, BasePokemon Pokemon, List<Pokeball> PokeBallsList, int TrainerNumber)
             {
             this.IsFull = IsFull;
             this.PokeballNumber = PokeballNumber;
             this.Pokemon = Pokemon;
+            this.TrainerNumber = TrainerNumber;
             
 
             PokeBallsList.Add(this);
@@ -119,41 +120,37 @@ public class Charmander : BasePokemon
                 
             }
             
-            
-
         }
 
 
 public class Trainer
 {
-    //private List<Pokeball> PokeballsBelt = new List<Pokeball>();
-
     public string Name { get; set; }
 
-    public Trainer(string Name, List<Pokeball> PokeballList)
+    public Trainer(string Name, List<Pokeball> PokeballList, int TrainerNumber)
     {
         this.Name = Name;
-        FillBelt(PokeballList);
+        FillBelt(PokeballList, TrainerNumber);
     }
 
-    public static void FillBelt(List<Pokeball> PokeballList)
+    public static void FillBelt(List<Pokeball> PokeballList, int TrainerNumber)
     {
         for (int i = 0; i < 6; i++)
         {
             if (i <= 1)
             {
                 var charmander = new Charmander("Charmander", "Fire", "Water", i, "charmander");
-                var Pokeball = new Pokeball(true, i, charmander, PokeballList);
+                var Pokeball = new Pokeball(true, i, charmander, PokeballList, TrainerNumber);
             }
             else if (i <= 3)
             {
                 var squirtle = new Squirtle("Squirtle", "Water", "Leaf", i, "squirtle");
-                var Pokeball = new Pokeball(true, i, squirtle, PokeballList);
+                var Pokeball = new Pokeball(true, i, squirtle, PokeballList, TrainerNumber);
             }
             else
             {
                 var bulbasaur = new Bulbasaur("Bulbasaur", "Leaf", "Fire", i, "bulbasaur");
-                var Pokeball = new Pokeball(true, i, bulbasaur, PokeballList);
+                var Pokeball = new Pokeball(true, i, bulbasaur, PokeballList, TrainerNumber);
             }
             
         }
