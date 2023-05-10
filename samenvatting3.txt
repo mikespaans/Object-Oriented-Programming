@@ -1,0 +1,1 @@
+De charmander class is nu veranderd in een subclass die de class BasePokemon gebruikt om de constructors te krijgen, Er zijn nu ook 2 nieuwe subclasses toegevoegd die allbei ook de class BasePokemon gebruiken. Ook word er nu in de List van de Pokeballs niet 6 charmanders meer toegevoegd maar worden er van iedere Pokemon subclass 2 toegevoegd aan de list.

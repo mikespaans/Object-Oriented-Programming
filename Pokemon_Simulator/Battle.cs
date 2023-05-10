@@ -92,31 +92,31 @@ public class Battle
     private Pokeball DetermineWinner(Pokeball PokeballTrainer1, Pokeball PokeballTrainer2, Pokeball PreviousRoundWinner)
     {
         //get pokemn types
-        string StrengthPokemon1 = PokeballTrainer1.Pokemon.Strength;
-        string StrengthPokemon2 = PokeballTrainer2.Pokemon.Strength;
+        Strength_Weakness StrengthPokemon1 = PokeballTrainer1.Pokemon.Strength;
+        Strength_Weakness StrengthPokemon2 = PokeballTrainer2.Pokemon.Strength;
         
         //determine winner based on pokemon strength
-        if (StrengthPokemon1 == "Fire" && StrengthPokemon2 == "Leaf")
+        if (StrengthPokemon1 == Strength_Weakness.Fire && StrengthPokemon2 == Strength_Weakness.Leaf)
         {
             return PokeballTrainer1;
         }
-        else if (StrengthPokemon1 == "Leaf" && StrengthPokemon2 == "Water")
+        else if (StrengthPokemon1 == Strength_Weakness.Leaf && StrengthPokemon2 == Strength_Weakness.Water)
         {
             return PokeballTrainer1;
         }
-        else if (StrengthPokemon1 == "Water" && StrengthPokemon2 == "Fire")
+        else if (StrengthPokemon1 == Strength_Weakness.Water && StrengthPokemon2 == Strength_Weakness.Fire)
         {
             return PokeballTrainer1;
         }
-        else if (StrengthPokemon2 == "Fire" && StrengthPokemon1 == "Leaf")
+        else if (StrengthPokemon2 == Strength_Weakness.Fire && StrengthPokemon1 == Strength_Weakness.Leaf)
         {
             return PokeballTrainer2;
         }
-        else if (StrengthPokemon2 == "Leaf" && StrengthPokemon1 == "Water")
+        else if (StrengthPokemon2 == Strength_Weakness.Leaf && StrengthPokemon1 == Strength_Weakness.Water)
         {
             return PokeballTrainer2;
         }
-        else if (StrengthPokemon2 == "Water" && StrengthPokemon1 == "Fire")
+        else if (StrengthPokemon2 == Strength_Weakness.Water && StrengthPokemon1 == Strength_Weakness.Fire)
         {
             return PokeballTrainer2;
         }
@@ -169,13 +169,18 @@ public class Arena
 
     private Battle Battle;
 
-    public Arena(Trainer PokemonTrainer1, Trainer PokemonTrainer2)
+    public Arena(Trainer PokemonTrainer1, Trainer PokemonTrainer2, bool AddToDict)
     {
-        RoundDict.Add(PokemonTrainer1, 0);
-        RoundDict.Add(PokemonTrainer2, 0);
+        RoundDict[PokemonTrainer1] = 0;
+        RoundDict[PokemonTrainer2] = 0;
+
+        if (AddToDict == true)
+        {
+            BattleDict.Add(PokemonTrainer1, 0);
+            BattleDict.Add(PokemonTrainer2, 0);
+            
+        }
         
-        BattleDict.Add(PokemonTrainer1, 0);
-        BattleDict.Add(PokemonTrainer2, 0);
         
     }
 
@@ -266,12 +271,15 @@ public class Arena
         Console.WriteLine($"Battles ended in a draw: {BattlesDraw}");
     }
     
-    public void ResetRoundStats(Trainer PokemonTrainer1, Trainer PokemonTrainer2)
+    public void ResetRoundStats(Trainer PokemonTrainer1, Trainer PokemonTrainer2, List<Pokeball> PokeballList1, List<Pokeball> PokeballList2)
     {
         //clear the round stats
         RoundDict[PokemonTrainer1] = 0;
         RoundDict[PokemonTrainer2] = 0;
         RoundsFought = 0;
+        PokeballList1.Clear();
+        PokeballList2.Clear();
+        
         
 
     }

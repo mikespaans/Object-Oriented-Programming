@@ -3,15 +3,26 @@ using System;
 
 namespace Pokemon;
 
+
+
 public abstract class BasePokemon
 {
-    public string Name { get; set; }
-    public string Strength { get; set; }
-    public string Weakness { get; set; }
-    public string Type { get; set; }
+    public readonly string Name;
+    public readonly Strength_Weakness Strength;
+    public readonly Strength_Weakness Weakness;
+    public readonly string Type;
 
-    public int PokemonNumber { get; set; }
-
+    public readonly int PokemonNumber;
+    
+    
+    public BasePokemon(string name, Strength_Weakness strength, Strength_Weakness weakness, int pokemonNumber, string type)
+    {
+        Name = name;
+        Strength = strength;
+        Weakness = weakness;
+        PokemonNumber = pokemonNumber;
+        Type = type;
+    }
     
     
     public abstract void BattleCry(string Name);
@@ -22,13 +33,13 @@ public abstract class BasePokemon
 
 public class Squirtle : BasePokemon
 {
-    public Squirtle(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
+    public Squirtle(string Name, Strength_Weakness Strength, Strength_Weakness Weakness, int PokemonNumber, string Type) : base(Name, Strength, Weakness, PokemonNumber, Type)
     {
-        this.Name = Name;
-        this.Strength = Strength;
-        this.Weakness = Weakness;
-        this.PokemonNumber = PokemonNumber;
-        this.Type = Type;
+        // this.Name = Name;
+        // this.Strength = Strength;
+        // this.Weakness = Weakness;
+        // this.PokemonNumber = PokemonNumber;
+        // this.Type = Type;
     }
     
     public override void BattleCry(string Name)
@@ -39,13 +50,13 @@ public class Squirtle : BasePokemon
 
 public class Bulbasaur : BasePokemon
 {
-    public Bulbasaur(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
+    public Bulbasaur(string Name, Strength_Weakness Strength, Strength_Weakness Weakness, int PokemonNumber, string Type) : base(Name, Strength, Weakness, PokemonNumber, Type)
     {
-        this.Name = Name;
-        this.Strength = Strength;
-        this.Weakness = Weakness;
-        this.PokemonNumber = PokemonNumber;
-        this.Type = Type;
+        // this.Name = Name;
+        // this.Strength = Strength;
+        // this.Weakness = Weakness;
+        // this.PokemonNumber = PokemonNumber;
+        // this.Type = Type;
     }
     public override void BattleCry(string Name)
     {
@@ -56,13 +67,13 @@ public class Bulbasaur : BasePokemon
 
 public class Charmander : BasePokemon
 {
-    public Charmander(string Name, string Strength, string Weakness, int PokemonNumber, string Type)
+    public Charmander(string Name, Strength_Weakness Strength, Strength_Weakness Weakness, int PokemonNumber, string Type) : base(Name, Strength, Weakness, PokemonNumber, Type)
     {
-        this.Name = Name;
-        this.Strength = Strength;
-        this.Weakness = Weakness;
-        this.PokemonNumber = PokemonNumber;
-        this.Type = Type;
+        // this.Name = Name;
+        // this.Strength = Strength;
+        // this.Weakness = Weakness;
+        // this.PokemonNumber = PokemonNumber;
+        // this.Type = Type;
     }
     public override void BattleCry(string Name)
     {
@@ -86,7 +97,7 @@ public class Pokeball
     public int TrainerNumber { get; set; }
 
     // public Charmander charmander { get; set; }
-    public BasePokemon Pokemon { get; set; }
+    public BasePokemon Pokemon { get; }
 
         public Pokeball (Boolean IsFull, int PokeballNumber, BasePokemon Pokemon, List<Pokeball> PokeBallsList, int TrainerNumber)
             {
@@ -125,7 +136,8 @@ public class Pokeball
 
 public class Trainer
 {
-    public string Name { get; set; }
+    private static int MaxPokeballs = 6;
+    public string Name { get; }
 
     public Trainer(string Name, List<Pokeball> PokeballList, int TrainerNumber)
     {
@@ -135,21 +147,27 @@ public class Trainer
 
     public static void FillBelt(List<Pokeball> PokeballList, int TrainerNumber)
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < MaxPokeballs; i++)
         {
+            // check if bellt is full
+            if (PokeballList.Count >= 6)
+            {
+                throw new Exception("Cannot add more Pokeballs, Belt is full");
+            }
+            // add pokeballs to belt
             if (i <= 1)
             {
-                var charmander = new Charmander("Charmander", "Fire", "Water", i, "charmander");
+                var charmander = new Charmander("Charmander", Strength_Weakness.Fire, Strength_Weakness.Water, i, "charmander");
                 var Pokeball = new Pokeball(true, i, charmander, PokeballList, TrainerNumber);
             }
             else if (i <= 3)
             {
-                var squirtle = new Squirtle("Squirtle", "Water", "Leaf", i, "squirtle");
+                var squirtle = new Squirtle("Squirtle", Strength_Weakness.Water, Strength_Weakness.Leaf, i, "squirtle");
                 var Pokeball = new Pokeball(true, i, squirtle, PokeballList, TrainerNumber);
             }
             else
             {
-                var bulbasaur = new Bulbasaur("Bulbasaur", "Leaf", "Fire", i, "bulbasaur");
+                var bulbasaur = new Bulbasaur("Bulbasaur", Strength_Weakness.Leaf, Strength_Weakness.Fire, i, "bulbasaur");
                 var Pokeball = new Pokeball(true, i, bulbasaur, PokeballList, TrainerNumber);
             }
             
