@@ -7,13 +7,13 @@ var AddToDict = true;
 
 Console.WriteLine("what is the name of the first trainer?");
 string TrainerName = Console.ReadLine();
-var trainer = new Trainer(TrainerName, Pokeball.PokeballsBelt, 1);
-Console.WriteLine(Pokeball.PokeballsBelt.Count);
+var trainer = new Trainer(TrainerName);
+trainer.FillBelt(trainer.PokeballsBelt, 1);
     
 Console.WriteLine("what is the name of the second trainer?");
 string TrainerName2 = Console.ReadLine();
-var trainer2 = new Trainer(TrainerName2, Pokeball.PokeballsBelt2, 2);
-Console.WriteLine(Pokeball.PokeballsBelt2.Count);
+var trainer2 = new Trainer(TrainerName2);
+trainer2.FillBelt(trainer2.PokeballsBelt, 2);
 
 
 
@@ -50,8 +50,13 @@ while (replay == true)
     {
         replay = false;
     }
- Arena.ResetRoundStats(trainer, trainer2, Pokeball.PokeballsBelt, Pokeball.PokeballsBelt2);
+ Arena.ResetRoundStats(trainer, trainer2);
  
- Trainer.FillBelt(Pokeball.PokeballsBelt, 1);
- Trainer.FillBelt(Pokeball.PokeballsBelt2, 2);
+ // Trainer.FillBelt(Pokeball.PokeballsBelt, 1);
+ // Trainer.FillBelt(Pokeball.PokeballsBelt2, 2);
+ 
+ //return all used pokeballs to the belt
+ trainer.ReturnPokeballsToBellt(trainer);
+ trainer2.ReturnPokeballsToBellt(trainer2);
+ 
 }

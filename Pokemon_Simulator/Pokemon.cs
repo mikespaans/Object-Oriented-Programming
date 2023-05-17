@@ -7,6 +7,7 @@ namespace Pokemon;
 
 public abstract class BasePokemon
 {
+    // once the value is set in the constructor, it cannot be changed
     public readonly string Name;
     public readonly Strength_Weakness Strength;
     public readonly Strength_Weakness Weakness;
@@ -14,14 +15,17 @@ public abstract class BasePokemon
 
     public readonly int PokemonNumber;
     
+    public bool IsAlive { get; set; }
     
-    public BasePokemon(string name, Strength_Weakness strength, Strength_Weakness weakness, int pokemonNumber, string type)
+    
+    public BasePokemon(string name, Strength_Weakness strength, Strength_Weakness weakness, int pokemonNumber, string type, bool isAlive = true)
     {
         Name = name;
         Strength = strength;
         Weakness = weakness;
         PokemonNumber = pokemonNumber;
         Type = type;
+        IsAlive = isAlive;
     }
     
     
@@ -87,8 +91,11 @@ public class Charmander : BasePokemon
 public class Pokeball
     {
 
-    public static List<Pokeball> PokeballsBelt = new List<Pokeball>();
-    public static List<Pokeball> PokeballsBelt2 = new List<Pokeball>();
+    // public static List<Pokeball> PokeballsBelt = new List<Pokeball>();
+    // public static List<Pokeball> PokeballsBelt2 = new List<Pokeball>();
+    //
+    // public static List<Pokeball> UsedPokeballsList = new List<Pokeball>();
+    // public static List<Pokeball> UsedPokeballsList2 = new List<Pokeball>();
 
 
 
@@ -138,14 +145,20 @@ public class Trainer
 {
     private static int MaxPokeballs = 6;
     public string Name { get; }
+    
+    public List<Pokeball> PokeballsBelt = new List<Pokeball>();
+    // public static List<Pokeball> PokeballsBelt2 = new List<Pokeball>();
+    
+    public List<Pokeball> UsedPokeballsList = new List<Pokeball>();
+    // public static List<Pokeball> UsedPokeballsList2 = new List<Pokeball>();
 
-    public Trainer(string Name, List<Pokeball> PokeballList, int TrainerNumber)
+    public Trainer(string Name)
     {
         this.Name = Name;
-        FillBelt(PokeballList, TrainerNumber);
+        // FillBelt(PokeballList, TrainerNumber);
     }
 
-    public static void FillBelt(List<Pokeball> PokeballList, int TrainerNumber)
+    public void FillBelt(List<Pokeball> PokeballList, int TrainerNumber)
     {
         for (int i = 0; i < MaxPokeballs; i++)
         {
@@ -173,6 +186,16 @@ public class Trainer
             
         }
     }
+    
+    public void ReturnPokeballsToBellt(Trainer trainer)
+    {
+        //Pokeballs get returned to the belt
+        foreach (var Pokeball in trainer.UsedPokeballsList)
+        {
+            trainer.PokeballsBelt.Add(Pokeball);
+        }
+        trainer.UsedPokeballsList.Clear();
+    }
 
     public void Throw(int PokeballNumber, List<Pokeball> PokeballList)
     {
@@ -185,7 +208,7 @@ public class Trainer
     }
 
     //gets a random pokeball from the belt
-    public Pokeball GetRandomPokeball(List<Pokeball> PokeballList)
+    public Pokeball GetRandomPokeball(List<Pokeball> PokeballList, List<Pokeball> UsedPokeballList)
     {
         
         //Random Pokeball gets selected
@@ -197,13 +220,14 @@ public class Trainer
         //Pokeball gets removed from the belt
         PokeballList.Remove(RandomPokeball);
         
+        //Pokeball gets added to the used Pokeball list
+        UsedPokeballList.Add(RandomPokeball);
+        
         //Pokemon gets released
         RandomPokeball.IsFull = false;
         
         //random Pokeball gets returned
         return RandomPokeball;
     }
-
-
-
+    
 }

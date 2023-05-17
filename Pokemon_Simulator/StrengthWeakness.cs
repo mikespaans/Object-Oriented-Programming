@@ -6,5 +6,4 @@ public enum Strength_Weakness{
     Fire,
     Water,
     Leaf
-    
 }

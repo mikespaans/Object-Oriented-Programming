@@ -31,7 +31,7 @@ public class Battle
 
     //Simulates a round of battle
 
-    public Pokeball SimulateRound( Pokeball PreviousRoundWinner = null)
+    public Pokeball SimulateRound( Trainer trainer, Trainer trainer2 ,Pokeball PreviousRoundWinner = null)
     {
         Pokeball? Pokeball1 = null;
         Pokeball? Pokeball2 = null;
@@ -46,7 +46,7 @@ public class Battle
             }
             else
             {
-                Pokeball1 = PokemonTrainer1.GetRandomPokeball(Pokeball.PokeballsBelt);
+                Pokeball1 = PokemonTrainer1.GetRandomPokeball(trainer.PokeballsBelt, trainer.UsedPokeballsList);
 
             }
 
@@ -57,14 +57,14 @@ public class Battle
             }
             else
             {
-                Pokeball2 = PokemonTrainer2.GetRandomPokeball(Pokeball.PokeballsBelt2);
+                Pokeball2 = PokemonTrainer2.GetRandomPokeball(trainer2.PokeballsBelt, trainer2.UsedPokeballsList);
 
             }
         }
         else
         {
-            Pokeball1 = PokemonTrainer1.GetRandomPokeball(Pokeball.PokeballsBelt);
-            Pokeball2 = PokemonTrainer2.GetRandomPokeball(Pokeball.PokeballsBelt2);
+            Pokeball1 = PokemonTrainer1.GetRandomPokeball(trainer.PokeballsBelt, trainer.UsedPokeballsList);
+            Pokeball2 = PokemonTrainer2.GetRandomPokeball(trainer2.PokeballsBelt, trainer2.UsedPokeballsList);
         }
         
 
@@ -76,10 +76,12 @@ public class Battle
         if (RoundWinner == Pokeball1)
         {
             Pokeball2.IsFull = true;
+            Pokeball2.Pokemon.IsAlive = false;
         } 
         else if (RoundWinner == Pokeball2)
         {
             Pokeball1.IsFull = true;
+            Pokeball1.Pokemon.IsAlive = false;
         }
 
 
@@ -141,10 +143,10 @@ public class Battle
     
     
     //Check if the battle is over
-    public bool IsBattleOver()
+    public bool IsBattleOver(Trainer trainer, Trainer trainer2)
     {
         //check if all pokeballs are used
-        if (Pokeball.PokeballsBelt.Count == 0 || Pokeball.PokeballsBelt2.Count == 0)
+        if (trainer.PokeballsBelt.Count == 0 || trainer2.PokeballsBelt.Count == 0)
         {
             return true;
         }
@@ -194,7 +196,7 @@ public class Arena
     public void SimulateBattle(Trainer PokemonTrainer1, Trainer PokemonTrainer2)
     {
         //simulate first round without a previous round winner
-        var RoundWinner = Battle.SimulateRound();
+        var RoundWinner = Battle.SimulateRound(PokemonTrainer1, PokemonTrainer2);
         Console.WriteLine($"Trainer {RoundWinner.TrainerNumber} won the round");
         
         RoundsFought++;
@@ -210,12 +212,12 @@ public class Arena
         }
         
         //loop until the battle is over
-        while (!Battle.IsBattleOver())
+        while (!Battle.IsBattleOver(PokemonTrainer1, PokemonTrainer2))
         {
             
             
             //simulate a round
-            RoundWinner = Battle.SimulateRound(RoundWinner);
+            RoundWinner = Battle.SimulateRound(PokemonTrainer1, PokemonTrainer2, RoundWinner);
 
             // Console.WriteLine(RoundWinner.TrainerNumber);
             Console.WriteLine($"Trainer {RoundWinner.TrainerNumber} won the round");
@@ -271,14 +273,14 @@ public class Arena
         Console.WriteLine($"Battles ended in a draw: {BattlesDraw}");
     }
     
-    public void ResetRoundStats(Trainer PokemonTrainer1, Trainer PokemonTrainer2, List<Pokeball> PokeballList1, List<Pokeball> PokeballList2)
+    public void ResetRoundStats(Trainer PokemonTrainer1, Trainer PokemonTrainer2)
     {
         //clear the round stats
         RoundDict[PokemonTrainer1] = 0;
         RoundDict[PokemonTrainer2] = 0;
         RoundsFought = 0;
-        PokeballList1.Clear();
-        PokeballList2.Clear();
+        // PokeballList1.Clear();
+        // PokeballList2.Clear();
         
         
 
