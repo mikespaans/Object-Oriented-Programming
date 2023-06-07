@@ -44,12 +44,7 @@ while (replay == true)
     Arena.SimulateBattle(trainer, trainer2);
     Arena.PrintStats(trainer, trainer2);
 
-    Console.WriteLine("Do you want to play again? (y/n)");
-    string answer = Console.ReadLine();
-    if (answer == "n")
-    {
-        replay = false;
-    }
+    
  Arena.ResetRoundStats(trainer, trainer2);
  
  // Trainer.FillBelt(Pokeball.PokeballsBelt, 1);
@@ -59,4 +54,26 @@ while (replay == true)
  trainer.ReturnPokeballsToBellt(trainer);
  trainer2.ReturnPokeballsToBellt(trainer2);
  
+ 
+ 
+ 
+ 
+ 
+ // Pokecenter
+ Trainer[] TrainerArray = new Trainer[] { trainer, trainer2 };
+ foreach (var t in TrainerArray)
+ {
+     var PokemonCenter = new PokemonCenter(t);
+     PokemonCenter.HealPokemon();
+ }
+     
+ 
+  
+ Console.WriteLine("Do you want to play again? (y/n)");
+ string answer = Console.ReadLine();
+ if (answer == "n")
+ {
+     replay = false;
+ }
+
 }
