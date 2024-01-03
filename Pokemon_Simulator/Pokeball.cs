@@ -1,7 +1,7 @@
 ﻿namespace Pokemon;
 
 
-public class Pokeball
+public sealed class Pokeball
 {
 
     // public static List<Pokeball> PokeballsBelt = new List<Pokeball>();
