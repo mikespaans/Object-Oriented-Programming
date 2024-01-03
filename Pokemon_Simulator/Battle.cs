@@ -1,4 +1,6 @@
-﻿namespace Pokemon;
+﻿using System.Threading;
+
+namespace Pokemon;
 
 
 // Create a Battle class that contains all the gameplay needed for the pokemon battle simulator.
@@ -69,7 +71,7 @@ public class Battle
         
 
         //determine the winner of the round
-        
+        Console.WriteLine($"Trainer {Pokeball1.TrainerNumber} throws {Pokeball1.Pokemon.Name} and trainer {Pokeball2.TrainerNumber} throws {Pokeball2.Pokemon.Name}");
         var RoundWinner = DetermineWinner(Pokeball1, Pokeball2, PreviousRoundWinner);
 
         // return the loser of the round to their pokeball
@@ -235,6 +237,8 @@ public class Arena
             }
             
             Console.WriteLine($"Trainer 1 has won {RoundDict[PokemonTrainer1]} rounds and trainer 2 has won {RoundDict[PokemonTrainer2]} rounds");
+            Thread.Sleep(3000);
+            
             
 
 

@@ -18,7 +18,6 @@ C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\bin\Deb
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.runtimeconfig.json
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.dll
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.pdb
-C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.csproj.AssemblyReference.cache
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.AssemblyInfoInputs.cache
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.AssemblyInfo.cs
@@ -28,3 +27,4 @@ C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Deb
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.pdb
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.genruntimeconfig.cache
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\ref\Pokemon_Simulator.dll
+C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.sourcelink.json
