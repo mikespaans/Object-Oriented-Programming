@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kTVWLwB7zLkq1X4IlWrMoqPwtQFW4c4DS00McVAfCCfb9a1fRLF+jTJmjtNVoSWEIN+tXq00voeq8I/8jXO/jA==",
+  "dgSpecHash": "ytei0nrktFCf1BhUoeL2iQgrDQFXcawUTjOzfoAzyBQhCIqrQjfy/x1TH4oh979FTJLRlMHwwRFP2MI5VZuSeA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Redux\\code\\school\\Object-Oriented-Programming\\Pokemon_Simulator\\Pokemon_Simulator.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Redux\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.25\\microsoft.windowsdesktop.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\Redux\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.25\\microsoft.netcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\Redux\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.25\\microsoft.aspnetcore.app.ref.6.0.25.nupkg.sha512",
-    "C:\\Users\\Redux\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.25\\microsoft.netcore.app.host.win-x64.6.0.25.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\school\\software\\jaar3\\test_files\\Object-Oriented-Programming\\Pokemon_Simulator\\Pokemon_Simulator.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

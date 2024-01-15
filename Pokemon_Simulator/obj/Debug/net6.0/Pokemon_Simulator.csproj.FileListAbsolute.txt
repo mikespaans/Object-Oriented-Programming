@@ -28,3 +28,17 @@ C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Deb
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.genruntimeconfig.cache
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\ref\Pokemon_Simulator.dll
 C:\Users\Redux\code\school\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.sourcelink.json
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.GeneratedMSBuildEditorConfig.editorconfig
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.AssemblyInfoInputs.cache
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.AssemblyInfo.cs
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.csproj.CoreCompileInputs.cache
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.dll
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\refint\Pokemon_Simulator.dll
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.pdb
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.exe
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.deps.json
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.runtimeconfig.json
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.dll
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\bin\Debug\net6.0\Pokemon_Simulator.pdb
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\Pokemon_Simulator.genruntimeconfig.cache
+C:\school\software\jaar3\test_files\Object-Oriented-Programming\Pokemon_Simulator\obj\Debug\net6.0\ref\Pokemon_Simulator.dll
